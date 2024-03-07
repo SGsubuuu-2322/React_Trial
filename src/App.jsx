@@ -3,7 +3,8 @@
 // import Button from "./components/Button";
 // import UseState from "./components/UseState";
 // import AdvUseState from "./components/AdvUseState";
-import ImageCard from "./components/ImgCard";
+// import ImageCard from "./components/ImgCard";
+import Btn from "./components/Btn";
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
       {/* <Button/> */}
       {/* <UseState/> */}
       {/* <AdvUseState /> */}
-      <ImageCard />
+      {/* <ImageCard /> */}
+      <Btn text="Know More" color="bg-blue-400" />
+      <Btn text="Download" color="bg-red-400" />
     </>
   );
 }
