@@ -5,6 +5,7 @@
 // import AdvUseState from "./components/AdvUseState";
 // import ImageCard from "./components/ImgCard";
 // import Btn from "./components/Btn";
+import { useState } from "react";
 import FrndCard from "./components/FrndCard";
 
 function App() {
@@ -35,6 +36,19 @@ function App() {
     },
   ];
 
+  const [realData, setRealData] = useState(data);
+
+  const handleFriendsButton = (cardIndex) => {
+    setRealData((previousData) => {
+      return previousData.map((item, index) => {
+        if (index === cardIndex) {
+          return { ...item, friends: !item.friends };
+        }
+        return item;
+      });
+    });
+  };
+
   return (
     <div className="bg-zinc-300 w-full h-screen flex items-center justify-center gap-4">
       {/* <Card/> */}
@@ -44,8 +58,13 @@ function App() {
       {/* <ImageCard /> */}
       {/* <Btn text="Know More" color="bg-blue-400" />
       <Btn text="Download" color="bg-red-400" /> */}
-      {data.map((item, index) => (
-        <FrndCard key={index} values={item} />
+      {realData.map((item, index) => (
+        <FrndCard
+          key={index}
+          toggler={handleFriendsButton}
+          cardIndex={index}
+          values={item}
+        />
       ))}
     </div>
   );

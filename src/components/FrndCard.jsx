@@ -1,7 +1,7 @@
 // import React from 'react'
 
-function FrndCard({ values }) {
-  const { image, name, profession } = values;
+function FrndCard({ values, toggler, cardIndex }) {
+  const { image, name, profession, friends } = values;
   return (
     <div className="w-52 bg-white rounded-md overflow-hidden">
       <div className="w-full h-40 bg-sky-200">
@@ -14,8 +14,13 @@ function FrndCard({ values }) {
       <div className="w-full p-3">
         <h3 className="text-xl font-semibold">{name}</h3>
         <h5 className="text-xs">{profession}</h5>
-        <button className="mt-4 px-3 py-1 text-xs text-white bg-blue-500 font-semibold rounded-md">
-          Add Friend
+        <button
+          onClick={() => toggler(cardIndex)}
+          className={`mt-4 px-3 py-1 text-xs text-white ${
+            friends ? "bg-green-500" : "bg-blue-500"
+          } font-semibold rounded-md`}
+        >
+          {friends ? "Friends" : "Add Friends"}
         </button>
       </div>
     </div>
